@@ -16,13 +16,13 @@ export default function JavaScriptBehindScenes() {
                 <li><strong>JavaScriptCore</strong> – Safari</li>
                 <li><strong>Chakra</strong> – Internet Explorer</li>
             </ul>
-            <Image width={500} height={500} src="https://www.freecodecamp.org/news/content/images/2023/05/09BA18A6-3F7A-4DBE-AA43-C482725CA5E4.jpeg" alt="JavaScript Engine" className="max-w-full h-auto rounded-lg border my-3" />
+            <Image width={500} height={500} src="https://www.freecodecamp.org/news/content/images/2023/05/09BA18A6-3F7A-4DBE-AA43-C482725CA5E4.jpeg" alt="JavaScript Engine" className="max-w-full h-auto rounded-lg border my-3" loading="eager" />
             <p className="mb-2">Every JavaScript engine contains two main parts:</p>
             <ul className="list-disc list-inside ml-4 mb-3">
                 <li><strong>Call Stack</strong> – where the code is actually executed (function calls, execution contexts).</li>
                 <li><strong>Heap</strong> – an unstructured memory pool where all objects are stored.</li>
             </ul>
-            <Image width={500} height={500}src="https://www.freecodecamp.org/news/content/images/2023/05/FA4EDBD9-0348-4445-B795-8D1FEF904CBE.jpeg" alt="Call Stack" className="max-w-full h-auto rounded-lg border my-3" />
+            <Image width={500} height={500} src="https://www.freecodecamp.org/news/content/images/2023/05/FA4EDBD9-0348-4445-B795-8D1FEF904CBE.jpeg" alt="Call Stack" className="max-w-full h-auto rounded-lg border my-3" />
             <p className="mb-2">When your code enters the engine, it goes through multiple stages:</p>
             <ol className="list-decimal list-inside ml-4 mb-3">
                 <li><strong>Parsing</strong> – the code is read and converted into an Abstract Syntax Tree (AST).</li>
@@ -32,7 +32,7 @@ export default function JavaScriptBehindScenes() {
 
             <h3 className="text-xl font-semibold text-teal-700 mt-5 mb-2">2. The JavaScript Runtime Environment</h3>
             <p className="mb-2">Think of the runtime as the &quot;house&quot; that contains everything needed to run JavaScript. In a browser, the runtime consists of:</p>
-            <Image width={500} height={500}src="https://www.freecodecamp.org/news/content/images/2023/05/CDFBBA53-5533-478E-91CE-5904714E1043.jpeg" alt="JavaScript Runtime Environment" className="max-w-full h-auto rounded-lg border my-3" />
+            <Image width={500} height={500} src="https://www.freecodecamp.org/news/content/images/2023/05/CDFBBA53-5533-478E-91CE-5904714E1043.jpeg" alt="JavaScript Runtime Environment" className="max-w-full h-auto rounded-lg border my-3" />
             <ul className="list-disc list-inside ml-4 mb-3">
                 <li><strong>JavaScript Engine</strong> (the core)</li>
                 <li><strong>Web APIs</strong> – functionalities provided by the browser (not part of the language itself). Examples: DOM API, Fetch API, timers, etc.</li>
@@ -47,9 +47,9 @@ export default function JavaScriptBehindScenes() {
 
             <h3 className="text-xl font-semibold text-teal-700 mt-5 mb-2">3. Optimization Strategies – How JavaScript Gets Faster</h3>
             <h4 className="font-semibold text-lg mt-3">🔁 Just-in-Time (JIT) Compilation</h4>
-            <Image width={500} height={500}src="https://www.freecodecamp.org/news/content/images/2023/05/EB039874-52DC-4CD8-B95C-F9E75F2D2283_4_5005_c.jpeg" alt="JIT Compilation" className="max-w-full h-auto rounded-lg border my-2" />
-            <Image width={500} height={500}src="https://www.freecodecamp.org/news/content/images/2023/05/D3DC97A6-3D79-46E0-A2F2-BB3FA694F0EF_4_5005_c.jpeg" alt="JIT Compilation 2" className="max-w-full h-auto rounded-lg border my-2" />
-            <Image width={500} height={500}src="https://www.freecodecamp.org/news/content/images/2023/05/E2BA4399-5F52-408C-B2AB-A9E6F74B3238_4_5005_c.jpeg" alt="JIT Compilation 3" className="max-w-full h-auto rounded-lg border my-2" />
+            <Image width={500} height={500} src="https://www.freecodecamp.org/news/content/images/2023/05/EB039874-52DC-4CD8-B95C-F9E75F2D2283_4_5005_c.jpeg" alt="JIT Compilation" className="max-w-full h-auto rounded-lg border my-2" loading="eager" />
+            <Image width={500} height={500} src="https://www.freecodecamp.org/news/content/images/2023/05/D3DC97A6-3D79-46E0-A2F2-BB3FA694F0EF_4_5005_c.jpeg" alt="JIT Compilation 2" className="max-w-full h-auto rounded-lg border my-2" loading="eager" />
+            <Image width={500} height={500} src="https://www.freecodecamp.org/news/content/images/2023/05/E2BA4399-5F52-408C-B2AB-A9E6F74B3238_4_5005_c.jpeg" alt="JIT Compilation 3" className="max-w-full h-auto rounded-lg border my-2" loading="eager" />
             <p className="mb-2">JavaScript used to be purely interpreted (which was slow). Modern engines <strong>combine compilation and interpretation</strong> using JIT:</p>
             <ul className="list-disc list-inside ml-4 mb-3">
                 <li>The code is compiled into machine code all at once, but not written to a binary file.</li>
