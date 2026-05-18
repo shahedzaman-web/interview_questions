@@ -1,3 +1,4 @@
+//app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -27,7 +28,15 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <div className="max-w-5xl mx-auto px-4 py-8 md:py-12">
+          <h1 className="text-4xl font-bold text-center text-slate-800 border-b-4 border-blue-500 pb-3 mb-6">
+            Complete Interview Preparation Guide
+          </h1>
+
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
