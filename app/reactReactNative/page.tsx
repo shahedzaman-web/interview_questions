@@ -177,7 +177,7 @@ export default function ReactReactNative() {
           </ul>
         </div>
         <div><strong>21. Name core Components in React Native and the analogy of those components when compared with the web.</strong>
-          <table className="table-auto">
+          <table className="min-w-full border border-gray-300 text-sm">
             <thead>
               <tr>
                 <th className="border border-gray-300 px-3 py-2">REACT NATIVE UI COMPONENT</th>
