@@ -1,26 +1,147 @@
+// components/ProblemSolving.tsx
 import React from "react";
 
 export default function ProblemSolving() {
+  const steps = [
+    {
+      number: 1,
+      title: "Understand the problem",
+      description: "Reproduce the bug consistently. Read error messages carefully. Ask clarifying questions.",
+      icon: "🔍",
+    },
+    {
+      number: 2,
+      title: "Isolate the cause",
+      description: "Use console logs, breakpoints, or React DevTools to narrow down where the issue occurs. Check if it’s a state/prop issue, API call, or rendering.",
+      icon: "🎯",
+    },
+    {
+      number: 3,
+      title: "Form a hypothesis",
+      description: "Based on evidence, guess what might be wrong (e.g., “maybe the state is not updating because of a missing dependency in useEffect”).",
+      icon: "💡",
+    },
+    {
+      number: 4,
+      title: "Test the hypothesis",
+      description: "Make a small change to verify. Use <code>console.log</code>, debugger, or comment out code.",
+      icon: "🧪",
+    },
+    {
+      number: 5,
+      title: "Fix and verify",
+      description: "Apply the correct fix and test thoroughly, including edge cases.",
+      icon: "✅",
+    },
+    {
+      number: 6,
+      title: "Learn & prevent",
+      description: "Understand why the bug happened. Add a test if possible. Document for future reference.",
+      icon: "📚",
+    },
+  ];
+
   return (
-    <section className="mb-12">
-      <h2 className="text-2xl font-bold text-blue-700 border-l-4 border-blue-500 pl-4 mt-8 mb-5">
-        PART 2: HOW TO APPROACH SOLVING A PROBLEM / BUG (Step‑by‑Step)
-      </h2>
-      <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg mb-5">
-        <strong>Interviewers often ask: “Walk me through how you debug a problem.”</strong> Use this structured approach.
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 text-white py-20 px-4">
+        <div className="max-w-5xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-amber-200">
+            How to Approach Solving a Problem / Bug
+          </h1>
+          <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto">
+            A structured, step-by-step method to debug and solve technical problems in interviews
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
+            <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm">6 Steps</span>
+            <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm">Debugging</span>
+            <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm">Tools & Tips</span>
+          </div>
+        </div>
       </div>
-      <ol className="list-decimal list-inside space-y-2 ml-4">
-        <li><strong>Understand the problem</strong> – Reproduce the bug consistently. Read error messages carefully. Ask clarifying questions.</li>
-        <li><strong>Isolate the cause</strong> – Use console logs, breakpoints, or React DevTools to narrow down where the issue occurs. Check if it’s a state/prop issue, API call, or rendering.</li>
-        <li><strong>Form a hypothesis</strong> – Based on evidence, guess what might be wrong (e.g., “maybe the state is not updating because of a missing dependency in useEffect”).</li>
-        <li><strong>Test the hypothesis</strong> – Make a small change to verify. Use <code className="bg-gray-200 px-1 rounded">console.log</code>, debugger, or comment out code.</li>
-        <li><strong>Fix and verify</strong> – Apply the correct fix and test thoroughly, including edge cases.</li>
-        <li><strong>Learn &amp; prevent</strong> – Understand why the bug happened. Add a test if possible. Document for future reference.</li>
-      </ol>
-      <p className="mt-3 text-gray-700"><strong>Example debugging scenario (React Native):</strong> “List not updating after API call → check if state is being set, if useEffect dependencies are correct, if network request succeeded → add error handling and loading states.”</p>
-      <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mt-3">
-        <strong>Key tools mentioned in interviews:</strong> Chrome DevTools, React DevTools, React Native Debugger, console.log, breakpoints, network tab.
+
+      <div className="max-w-5xl mx-auto px-4 py-12">
+        {/* Introduction Card */}
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-6 mb-10 border border-amber-100">
+          <div className="flex items-start gap-3">
+            <div className="text-3xl">💬</div>
+            <div>
+              <h2 className="font-bold text-xl text-amber-800 mb-2">Interviewers often ask:</h2>
+              <p className="text-gray-700">“Walk me through how you debug a problem.” Use this structured approach to show your analytical thinking and systematic debugging skills.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Steps Grid */}
+        <div className="grid gap-6 mb-12">
+          {steps.map((step) => (
+            <div key={step.number} className="group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
+              <div className="p-6">
+                <div className="flex items-center gap-4 mb-3">
+                  <div className="bg-amber-100 text-amber-700 w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold shadow-sm">
+                    {step.number}
+                  </div>
+                  <div className="text-3xl">{step.icon}</div>
+                  <h3 className="text-xl font-bold text-gray-800">{step.title}</h3>
+                </div>
+                <p className="text-gray-600 leading-relaxed ml-16" dangerouslySetInnerHTML={{ __html: step.description }} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Example Scenario Card */}
+        <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden mb-8">
+          <div className="p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="text-3xl">🎯</div>
+              <h3 className="text-xl font-bold text-gray-800">Example Debugging Scenario (React Native)</h3>
+            </div>
+            <p className="text-gray-700 leading-relaxed">
+              “List not updating after API call → check if state is being set, if useEffect dependencies are correct, if network request succeeded → add error handling and loading states.”
+            </p>
+          </div>
+        </div>
+
+        {/* Tools Card */}
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="text-3xl">🛠️</div>
+            <h3 className="font-bold text-xl text-blue-800">Key Tools Mentioned in Interviews</h3>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {["Chrome DevTools", "React DevTools", "React Native Debugger", "console.log", "breakpoints", "network tab"].map((tool) => (
+              <span key={tool} className="bg-white text-gray-700 px-3 py-1 rounded-full text-sm shadow-sm">
+                {tool}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Final Advice */}
+        <div className="mt-12 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-6 border border-amber-100">
+          <div className="flex items-start gap-3">
+            <div className="text-3xl">🎯</div>
+            <div>
+              <h3 className="font-bold text-lg text-amber-800">Pro Tip</h3>
+              <p className="text-gray-700">Always explain your thought process out loud. Interviewers want to see how you think, not just the final answer. Use the 6 steps as a mental framework, and adapt them to any problem.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Back to Top Button */}
+        <div className="fixed bottom-6 right-6">
+          <a
+            href="#"
+            className="bg-amber-600 hover:bg-amber-700 text-white p-3 rounded-full shadow-lg transition-all hover:scale-110"
+            aria-label="Back to top"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+          </a>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
