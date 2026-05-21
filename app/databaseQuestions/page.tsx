@@ -90,8 +90,9 @@ export default function DatabaseQuestions() {
             {/* Hero Section - Responsive */}
             <div className="bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 text-white py-12 md:py-20 px-4">
                 <div className="max-w-5xl mx-auto text-center">
+                     <span className="text-5xl"> 🗄️ </span>
                     <h1 className="text-4xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-indigo-200">
-                        🗄️ Database Interview Questions (NoSQL & Relational)
+                       Database Interview Questions (NoSQL & Relational)
                     </h1>
                     <p className="text-lg md:text-2xl text-indigo-100 max-w-3xl mx-auto">
                         Comprehensive guide: DBMS, PostgreSQL, MongoDB, Prisma, Mongoose, and ORM concepts

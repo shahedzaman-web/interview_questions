@@ -159,8 +159,9 @@ export default function NodeExpressQuestions() {
       {/* Hero Section - Responsive */}
       <div className="bg-gradient-to-r from-emerald-700 via-green-700 to-teal-800 text-white py-12 md:py-20 px-4">
         <div className="max-w-5xl mx-auto text-center">
+          <span className="text-5xl"> 🚀 </span>
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-emerald-200 break-words">
-            🚀 Node.js & Express.js – Complete Interview Guide
+            Node.js & Express.js – Complete Interview Guide
           </h1>
           <p className="text-base md:text-2xl text-emerald-100 max-w-3xl mx-auto">
             Beginner → Advanced | Event Loop | Security | CORS | Helmet | Clustering | Microservices
