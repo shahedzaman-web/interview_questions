@@ -1,7 +1,8 @@
-// components/NodeExpressFull.tsx
+// app/nodeExpressQuestions/page.tsx
 import React from "react";
 
-export default function NodeExpressFull() {
+export default function NodeExpressQuestions() {
+  // ======================== BEGINNER QUESTIONS ========================
   const beginnerQuestions = [
     { q: "1. How does Node.js work?", a: "Node.js works on a single-threaded, event-driven architecture using the V8 JavaScript engine. V8 compiles JavaScript into fast machine code. The event loop handles asynchronous tasks (I/O, timers, requests) without blocking the main thread. Libuv library provides a thread pool and handles background tasks like file system operations and networking. Non-blocking I/O lets Node.js process thousands of concurrent requests efficiently without creating multiple threads." },
     { q: "2. What is NPM?", a: "NPM (Node Package Manager) is the default package manager for Node.js. It is used to install and manage packages (libraries or dependencies) required for JavaScript applications. It uses package.json to manage project dependencies and metadata and works through CLI commands like <code>npm install</code>, <code>npm update</code>, and <code>npm uninstall</code>." },
@@ -25,6 +26,7 @@ export default function NodeExpressFull() {
     { q: "20. Which command imports external libraries?", a: "<code>require()</code> (CommonJS) or <code>import</code> (ES Modules)." }
   ];
 
+  // ======================== INTERMEDIATE QUESTIONS ========================
   const intermediateQuestions = [
     { q: "21. What is event-driven programming in Node.js?", a: "Event-driven programming synchronises the occurrence of multiple events. Components: a callback function (event handler) called when an event is triggered, and an event loop that listens for triggers and calls handlers." },
     { q: "22. What is a buffer in Node.js?", a: "The Buffer class handles raw binary data. Buffers are fixed-size memory allocations outside the V8 heap, used for handling binary data like images or encrypted information." },
@@ -45,6 +47,7 @@ export default function NodeExpressFull() {
     { q: "37. How does clustering work in Node.js?", a: "", code: "const cluster = require('cluster');\nconst http = require('http');\nconst os = require('os');\nif (cluster.isMaster) {\n  for (let i = 0; i < os.cpus().length; i++) cluster.fork();\n} else {\n  http.createServer((req, res) => res.end('Hello')).listen(8000);\n}" }
   ];
 
+  // ======================== ADVANCED QUESTIONS ========================
   const advancedQuestions = [
     { q: "38. How would you architect a scalable, maintainable Node.js application?", a: "Use modular architecture, microservices or serverless patterns, message queues (RabbitMQ, Kafka), caching (Redis), horizontal scaling, load balancing, and container orchestration (Kubernetes)." },
     { q: "39. Explain microservices and why Node.js fits.", a: "Microservices decompose an application into small, independent services. Node.js is lightweight, fast I/O, and excellent for HTTP/REST and messaging protocols, making it ideal for microservices." },
@@ -69,6 +72,7 @@ export default function NodeExpressFull() {
     { q: "58. How to implement rate-limiting on an API?", a: "Use <code>express-rate-limit</code> middleware as shown:", code: "const rateLimit = require('express-rate-limit');\nconst limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });\napp.use(limiter);" }
   ];
 
+  // ======================== EXPRESS QUESTIONS ========================
   const expressQuestions = [
     { q: "59. What is the default port for Express?", a: "Express does not have a fixed default. Developers commonly use port 3000 by convention." },
     { q: "60. What is middleware in Express?", a: "Middleware functions have access to <code>req</code>, <code>res</code>, and <code>next</code>. They can execute code, modify request/response, end the cycle, or call <code>next()</code>." },
@@ -112,173 +116,236 @@ export default function NodeExpressFull() {
     { q: "98. Use of app.use()?", a: "Adds global or route‑specific middleware functions." }
   ];
 
+  // Helper to render HTML safely from answers (allow basic inline code)
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-emerald-700 via-green-700 to-teal-800 text-white py-20 px-4">
+      {/* Hero Section - Responsive */}
+      <div className="bg-gradient-to-r from-emerald-700 via-green-700 to-teal-800 text-white py-12 md:py-20 px-4">
         <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-emerald-200">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-emerald-200 break-words">
             🚀 Node.js & Express.js – Complete Interview Guide
           </h1>
-          <p className="text-xl md:text-2xl text-emerald-100 max-w-3xl mx-auto">
+          <p className="text-base md:text-2xl text-emerald-100 max-w-3xl mx-auto">
             Beginner → Advanced | Event Loop | Security | CORS | Helmet | Clustering | Microservices
           </p>
-          <div className="flex flex-wrap justify-center gap-3 mt-8">
-            <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm">Event Loop</span>
-            <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm">Middleware</span>
-            <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm">Security</span>
-            <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm">Clustering</span>
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-6 md:mt-8">
+            <span className="bg-white/20 backdrop-blur-sm px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">Event Loop</span>
+            <span className="bg-white/20 backdrop-blur-sm px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">Middleware</span>
+            <span className="bg-white/20 backdrop-blur-sm px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">Security</span>
+            <span className="bg-white/20 backdrop-blur-sm px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">Clustering</span>
           </div>
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 py-12">
+      <div className="max-w-5xl mx-auto px-4 py-8 md:py-12">
         {/* Introduction Card */}
-        <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-2xl p-6 mb-10 border border-emerald-100">
+        <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-2xl p-4 md:p-6 mb-8 md:mb-10 border border-emerald-100">
           <div className="flex items-start gap-3">
             <div className="text-3xl">📘</div>
             <div>
-              <h2 className="font-bold text-xl text-emerald-800 mb-2">Master Node.js & Express.js</h2>
-              <p className="text-gray-700">This guide covers everything from fundamental concepts to advanced topics: event loop, streams, clustering, security (CORS, Helmet), microservices, and deployment.</p>
+              <h2 className="font-bold text-lg md:text-xl text-emerald-800 mb-2">Master Node.js & Express.js</h2>
+              <p className="text-sm md:text-base text-gray-700">This guide covers everything from fundamental concepts to advanced topics: event loop, streams, clustering, security (CORS, Helmet), microservices, and deployment.</p>
             </div>
           </div>
         </div>
 
-        {/* Beginner Section */}
-        <div className="mb-14">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
-              <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {/* BEGINNER SECTION */}
+        <div className="mb-12 md:mb-14">
+          <div className="flex items-center gap-3 mb-4 md:mb-6 flex-wrap">
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-green-100 rounded-xl flex items-center justify-center">
+              <svg className="w-4 h-4 md:w-5 md:h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               </svg>
             </div>
-            <h2 className="text-3xl font-bold text-gray-800">🟢 Beginner Level</h2>
+            <h2 className="text-xl md:text-3xl font-bold text-gray-800">🟢 Beginner Level</h2>
           </div>
-          <div className="grid gap-4">
+          {/* Key Takeaways */}
+          <div className="bg-green-50 border-l-4 border-green-500 p-3 md:p-4 mb-4 md:mb-6 rounded-r-xl">
+            <p className="font-semibold text-green-800 mb-1 text-sm md:text-base">📌 Key takeaways (Beginner)</p>
+            <ul className="list-disc list-inside text-xs md:text-sm text-gray-700 space-y-1">
+              <li>Node.js = single‑threaded event loop + non‑blocking I/O → handles thousands of concurrent connections.</li>
+              <li>NPM manages packages; <code>package.json</code> holds project metadata.</li>
+              <li>V8 engine compiles JS to machine code; libuv handles async I/O.</li>
+              <li>Modules are reusable blocks – use <code>require()</code> (CommonJS) or <code>import</code> (ESM).</li>
+              <li>Environment variables via <code>process.env</code> + <code>dotenv</code>.</li>
+            </ul>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {beginnerQuestions.map((item, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-5">
-                <div className="flex items-start gap-3">
-                  <span className="bg-green-100 text-green-700 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{idx + 1}</span>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-gray-800" dangerouslySetInnerHTML={{ __html: item.q }} />
-                    <p className="text-gray-600 text-sm mt-1" dangerouslySetInnerHTML={{ __html: item.a }} />
-                    {item.code && <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-sm mt-2">{item.code}</pre>}
+              <div key={idx} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-4 md:p-5">
+                <div className="flex items-start gap-2 md:gap-3">
+                  <span className="bg-green-100 text-green-700 w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{idx + 1}</span>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold text-gray-800 text-sm md:text-base break-words" dangerouslySetInnerHTML={{ __html: item.q }} />
+                    <div className="text-gray-600 text-xs md:text-sm mt-1 break-words" dangerouslySetInnerHTML={{ __html: item.a }} />
+                    {item.code && <pre className="bg-gray-900 text-gray-100 p-2 md:p-3 rounded-lg overflow-x-auto text-xs mt-2">{item.code}</pre>}
                   </div>
                 </div>
               </div>
             ))}
           </div>
+          {/* Memorization Tip */}
+          <div className="mt-4 md:mt-6 bg-green-100 rounded-xl p-3 md:p-4 border border-green-200">
+            <p className="text-green-800 text-xs md:text-sm font-medium">💡 <strong>Easy memorization tip (Beginner):</strong> <br />
+              Remember <strong>“V8 + libuv + event loop = Node.js”</strong>. For Express: <strong>“app.get/post, use middleware, send JSON”</strong>.</p>
+          </div>
         </div>
 
-        {/* Intermediate Section */}
-        <div className="mb-14">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center">
-              <svg className="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {/* INTERMEDIATE SECTION */}
+        <div className="mb-12 md:mb-14">
+          <div className="flex items-center gap-3 mb-4 md:mb-6 flex-wrap">
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-orange-100 rounded-xl flex items-center justify-center">
+              <svg className="w-4 h-4 md:w-5 md:h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h2 className="text-3xl font-bold text-gray-800">🟠 Intermediate Level</h2>
+            <h2 className="text-xl md:text-3xl font-bold text-gray-800">🟠 Intermediate Level</h2>
           </div>
-          <div className="grid gap-4">
+          <div className="bg-orange-50 border-l-4 border-orange-500 p-3 md:p-4 mb-4 md:mb-6 rounded-r-xl">
+            <p className="font-semibold text-orange-800 mb-1 text-sm md:text-base">📌 Key takeaways (Intermediate)</p>
+            <ul className="list-disc list-inside text-xs md:text-sm text-gray-700 space-y-1">
+              <li><strong>Streams</strong>: Readable, Writable, Duplex, Transform – process data chunk‑by‑chunk.</li>
+              <li><strong>Buffers</strong> handle binary data (images, files).</li>
+              <li><strong>Event loop phases</strong>: timers → I/O → poll → check → close. Microtasks (nextTick, Promises) run between phases.</li>
+              <li><code>setImmediate()</code> vs <code>process.nextTick()</code>: nextTick runs before any I/O, setImmediate after I/O.</li>
+              <li><strong>Clustering</strong> forks multiple workers (one per CPU core) to utilise multi‑core systems.</li>
+            </ul>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {intermediateQuestions.map((item, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-5">
-                <div className="flex items-start gap-3">
-                  <span className="bg-orange-100 text-orange-700 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{idx + 21}</span>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-gray-800" dangerouslySetInnerHTML={{ __html: item.q }} />
-                    <p className="text-gray-600 text-sm mt-1" dangerouslySetInnerHTML={{ __html: item.a }} />
-                    {item.code && <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-sm mt-2">{item.code}</pre>}
+              <div key={idx} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-4 md:p-5">
+                <div className="flex items-start gap-2 md:gap-3">
+                  <span className="bg-orange-100 text-orange-700 w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{idx + 21}</span>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold text-gray-800 text-sm md:text-base break-words" dangerouslySetInnerHTML={{ __html: item.q }} />
+                    <div className="text-gray-600 text-xs md:text-sm mt-1 break-words" dangerouslySetInnerHTML={{ __html: item.a }} />
+                    {item.code && <pre className="bg-gray-900 text-gray-100 p-2 md:p-3 rounded-lg overflow-x-auto text-xs mt-2">{item.code}</pre>}
                   </div>
                 </div>
               </div>
             ))}
           </div>
+          <div className="mt-4 md:mt-6 bg-orange-100 rounded-xl p-3 md:p-4 border border-orange-200">
+            <p className="text-orange-800 text-xs md:text-sm font-medium">💡 <strong>Easy memorization tip (Intermediate):</strong> <br />
+              Event loop order: <strong>“Timers → Poll → Check → Close”</strong> + microtasks after each phase. <br />
+              Streams: <strong>“RWD – Read, Write, Duplex”</strong> (and Transform).</p>
+          </div>
         </div>
 
-        {/* Advanced Section */}
-        <div className="mb-14">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center">
-              <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {/* ADVANCED SECTION */}
+        <div className="mb-12 md:mb-14">
+          <div className="flex items-center gap-3 mb-4 md:mb-6 flex-wrap">
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-red-100 rounded-xl flex items-center justify-center">
+              <svg className="w-4 h-4 md:w-5 md:h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
-            <h2 className="text-3xl font-bold text-gray-800">🔴 Advanced Level</h2>
+            <h2 className="text-xl md:text-3xl font-bold text-gray-800">🔴 Advanced Level</h2>
           </div>
-          <div className="grid gap-4">
+          <div className="bg-red-50 border-l-4 border-red-500 p-3 md:p-4 mb-4 md:mb-6 rounded-r-xl">
+            <p className="font-semibold text-red-800 mb-1 text-sm md:text-base">📌 Key takeaways (Advanced)</p>
+            <ul className="list-disc list-inside text-xs md:text-sm text-gray-700 space-y-1">
+              <li><strong>Microservices</strong> + Node.js = natural fit (lightweight, fast I/O).</li>
+              <li><strong>Worker threads</strong> for CPU‑heavy tasks (avoid blocking event loop).</li>
+              <li><strong>Observability</strong>: logging (Elastic), metrics (Prometheus), tracing (OpenTelemetry).</li>
+              <li><strong>Security best practices</strong>: Helmet, rate limiting, JWT, bcrypt, input sanitisation.</li>
+              <li><strong>Containerisation</strong> with Docker + orchestration (Kubernetes) for scaling.</li>
+            </ul>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {advancedQuestions.map((item, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-5">
-                <div className="flex items-start gap-3">
-                  <span className="bg-red-100 text-red-700 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{idx + 38}</span>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-gray-800" dangerouslySetInnerHTML={{ __html: item.q }} />
-                    <p className="text-gray-600 text-sm mt-1" dangerouslySetInnerHTML={{ __html: item.a }} />
-                    {item.code && <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-sm mt-2">{item.code}</pre>}
+              <div key={idx} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-4 md:p-5">
+                <div className="flex items-start gap-2 md:gap-3">
+                  <span className="bg-red-100 text-red-700 w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{idx + 38}</span>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold text-gray-800 text-sm md:text-base break-words" dangerouslySetInnerHTML={{ __html: item.q }} />
+                    <div className="text-gray-600 text-xs md:text-sm mt-1 break-words" dangerouslySetInnerHTML={{ __html: item.a }} />
+                    {item.code && <pre className="bg-gray-900 text-gray-100 p-2 md:p-3 rounded-lg overflow-x-auto text-xs mt-2">{item.code}</pre>}
                   </div>
                 </div>
               </div>
             ))}
           </div>
+          <div className="mt-4 md:mt-6 bg-red-100 rounded-xl p-3 md:p-4 border border-red-200">
+            <p className="text-red-800 text-xs md:text-sm font-medium">💡 <strong>Easy memorization tip (Advanced):</strong> <br />
+              <strong>“CPU work → worker_threads; I/O work → event loop”</strong>. <br />
+              Scalability: <strong>“Clone (clustering) → Decompose (microservices) → Cache (Redis) → Queue (RabbitMQ)”</strong>.</p>
+          </div>
         </div>
 
-        {/* Express.js Section */}
-        <div className="mb-14">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
-              <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {/* EXPRESS SECTION */}
+        <div className="mb-12 md:mb-14">
+          <div className="flex items-center gap-3 mb-4 md:mb-6 flex-wrap">
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-100 rounded-xl flex items-center justify-center">
+              <svg className="w-4 h-4 md:w-5 md:h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
             </div>
-            <h2 className="text-3xl font-bold text-gray-800">⚙️ Express.js Specific Questions</h2>
+            <h2 className="text-xl md:text-3xl font-bold text-gray-800">⚙️ Express.js Specific Questions</h2>
           </div>
-          <div className="grid gap-4">
+          <div className="bg-blue-50 border-l-4 border-blue-500 p-3 md:p-4 mb-4 md:mb-6 rounded-r-xl">
+            <p className="font-semibold text-blue-800 mb-1 text-sm md:text-base">📌 Key takeaways (Express)</p>
+            <ul className="list-disc list-inside text-xs md:text-sm text-gray-700 space-y-1">
+              <li><strong>Middleware</strong> = functions that run in order: <code>app.use()</code> (global), <code>app.METHOD()</code> (route‑specific).</li>
+              <li><strong>Built‑in middleware</strong>: <code>express.json()</code>, <code>express.urlencoded()</code>, <code>express.static()</code>.</li>
+              <li><strong>Error‑handling middleware</strong> has 4 parameters <code>(err, req, res, next)</code>.</li>
+              <li><strong>Security</strong>: helmet (headers), cors (cross‑origin), express‑rate‑limit (brute force).</li>
+              <li><strong>Routing</strong>: <code>app.route('/path').get().post()</code> and <code>express.Router()</code> for modularity.</li>
+            </ul>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {expressQuestions.map((item, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-5">
-                <div className="flex items-start gap-3">
-                  <span className="bg-blue-100 text-blue-700 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{idx + 59}</span>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-gray-800" dangerouslySetInnerHTML={{ __html: item.q }} />
-                    <p className="text-gray-600 text-sm mt-1" dangerouslySetInnerHTML={{ __html: item.a }} />
-                    {item.code && <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-sm mt-2">{item.code}</pre>}
+              <div key={idx} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-4 md:p-5">
+                <div className="flex items-start gap-2 md:gap-3">
+                  <span className="bg-blue-100 text-blue-700 w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{idx + 59}</span>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold text-gray-800 text-sm md:text-base break-words" dangerouslySetInnerHTML={{ __html: item.q }} />
+                    <div className="text-gray-600 text-xs md:text-sm mt-1 break-words" dangerouslySetInnerHTML={{ __html: item.a }} />
+                    {item.code && <pre className="bg-gray-900 text-gray-100 p-2 md:p-3 rounded-lg overflow-x-auto text-xs mt-2">{item.code}</pre>}
                   </div>
                 </div>
               </div>
             ))}
           </div>
+          <div className="mt-4 md:mt-6 bg-blue-100 rounded-xl p-3 md:p-4 border border-blue-200">
+            <p className="text-blue-800 text-xs md:text-sm font-medium">💡 <strong>Easy memorization tip (Express):</strong> <br />
+              <strong>“app.use(cors(), helmet(), express.json())”</strong> → these three are almost always at the top of your main file. <br />
+              Middleware order matters: place error‑handling middleware last.</p>
+          </div>
         </div>
 
-        {/* Security & Middleware Deep Dive */}
-        <div className="mb-14">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center">
-              <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {/* SECURITY DEEP DIVE */}
+        <div className="mb-12 md:mb-14">
+          <div className="flex items-center gap-3 mb-4 md:mb-6">
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-amber-100 rounded-xl flex items-center justify-center">
+              <svg className="w-4 h-4 md:w-5 md:h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
             </div>
-            <h2 className="text-3xl font-bold text-gray-800">🔐 Security & Middleware Deep Dive</h2>
+            <h2 className="text-xl md:text-3xl font-bold text-gray-800">🔐 Security & Middleware Deep Dive</h2>
           </div>
-          <div className="grid gap-4">
-            <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-5">
-              <h3 className="font-bold text-gray-800">Detailed: CORS configuration</h3>
-              <p className="text-gray-600 text-sm mt-1">The <code>cors</code> package allows fine‑grained control: <code>origin</code>, <code>methods</code>, <code>allowedHeaders</code>, <code>exposedHeaders</code>, <code>credentials</code>. To enable credentials (cookies) you must set <code>credentials: true</code> and the client must set <code>withCredentials: true</code>.</p>
-              <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-sm mt-2">{`app.use(cors({
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-4 md:p-5">
+              <h3 className="font-bold text-gray-800 text-sm md:text-base">Detailed: CORS configuration</h3>
+              <p className="text-gray-600 text-xs md:text-sm mt-1">The <code>cors</code> package allows fine‑grained control: <code>origin</code>, <code>methods</code>, <code>allowedHeaders</code>, <code>exposedHeaders</code>, <code>credentials</code>. To enable credentials (cookies) you must set <code>credentials: true</code> and the client must set <code>withCredentials: true</code>.</p>
+              <pre className="bg-gray-900 text-gray-100 p-2 md:p-3 rounded-lg overflow-x-auto text-xs mt-2">{`app.use(cors({
   origin: 'https://myfrontend.com',
   credentials: true,
   methods: ['GET','POST','PUT','DELETE']
 }));`}</pre>
             </div>
-            <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-5">
-              <h3 className="font-bold text-gray-800">Detailed: cookie‑parser options</h3>
-              <p className="text-gray-600 text-sm mt-1"><code>cookie-parser</code> can also parse signed cookies if you provide a secret. Signed cookies prevent tampering.</p>
-              <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-sm mt-2">{`app.use(cookieParser('my-secret'));
+            <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-4 md:p-5">
+              <h3 className="font-bold text-gray-800 text-sm md:text-base">Detailed: cookie‑parser options</h3>
+              <p className="text-gray-600 text-xs md:text-sm mt-1"><code>cookie-parser</code> can also parse signed cookies if you provide a secret. Signed cookies prevent tampering.</p>
+              <pre className="bg-gray-900 text-gray-100 p-2 md:p-3 rounded-lg overflow-x-auto text-xs mt-2">{`app.use(cookieParser('my-secret'));
 res.cookie('name', 'value', { signed: true });
 // later: req.signedCookies.name`}</pre>
             </div>
-            <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-5">
-              <h3 className="font-bold text-gray-800">Detailed: Helmet configuration</h3>
-              <p className="text-gray-600 text-sm mt-1">Helmet can be customized: disable a header, set custom CSP directives.</p>
-              <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-sm mt-2">{`app.use(helmet({
+            <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 p-4 md:p-5">
+              <h3 className="font-bold text-gray-800 text-sm md:text-base">Detailed: Helmet configuration</h3>
+              <p className="text-gray-600 text-xs md:text-sm mt-1">Helmet can be customized: disable a header, set custom CSP directives.</p>
+              <pre className="bg-gray-900 text-gray-100 p-2 md:p-3 rounded-lg overflow-x-auto text-xs mt-2">{`app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
@@ -290,44 +357,50 @@ res.cookie('name', 'value', { signed: true });
           </div>
         </div>
 
-        {/* Quick Reference Table */}
-        <div className="mb-14">
-          <h3 className="text-xl font-bold text-gray-800 mb-4">📋 Quick Reference</h3>
+        {/* QUICK REFERENCE TABLE - Fully responsive with escaped braces */}
+        <div className="mb-12 md:mb-14">
+          <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4">📋 Quick Reference & Memorization Table</h3>
           <div className="overflow-x-auto rounded-xl shadow-sm border border-gray-200">
-            <table className="min-w-full bg-white">
+            <table className="min-w-[500px] md:min-w-full bg-white">
               <thead className="bg-gradient-to-r from-emerald-50 to-teal-50">
                 <tr>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Concept</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Command / Code</th>
+                  <th className="px-3 py-2 md:px-4 md:py-3 text-left text-xs md:text-sm font-semibold text-gray-700">Concept</th>
+                  <th className="px-3 py-2 md:px-4 md:py-3 text-left text-xs md:text-sm font-semibold text-gray-700">Command / Code</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="bg-white hover:bg-gray-50 transition"><td className="px-4 py-2 border-t border-gray-100">Start Node.js app with debugging</td><td className="px-4 py-2 border-t border-gray-100"><code>node --inspect app.js</code></td></tr>
-                <tr className="bg-gray-50 hover:bg-gray-100 transition"><td className="px-4 py-2 border-t border-gray-100">PM2 cluster mode</td><td className="px-4 py-2 border-t border-gray-100"><code>pm2 start app.js -i max</code></td></tr>
-                <tr className="bg-white hover:bg-gray-50 transition"><td className="px-4 py-2 border-t border-gray-100">Express JSON body parser</td><td className="px-4 py-2 border-t border-gray-100"><code>app.use(express.json())</code></td></tr>
-                <tr className="bg-gray-50 hover:bg-gray-100 transition"><td className="px-4 py-2 border-t border-gray-100">Nginx reverse proxy config</td><td className="px-4 py-2 border-t border-gray-100"><code>proxy_pass http://localhost:3000;</code></td></tr>
-                <tr className="bg-white hover:bg-gray-50 transition"><td className="px-4 py-2 border-t border-gray-100">Generate a JWT</td><td className="px-4 py-2 border-t border-gray-100"><code>jwt.sign(payload, secret)</code></td></tr>
+                <tr className="bg-white hover:bg-gray-50 transition"><td className="px-3 py-2 md:px-4 md:py-2 border-t text-xs md:text-sm">Start Node.js app with debugging</td><td className="px-3 py-2 md:px-4 md:py-2 border-t font-mono text-xs md:text-sm"><code>node --inspect app.js</code></td></tr>
+                <tr className="bg-gray-50 hover:bg-gray-100 transition"><td className="px-3 py-2 md:px-4 md:py-2 border-t text-xs md:text-sm">PM2 cluster mode</td><td className="px-3 py-2 md:px-4 md:py-2 border-t font-mono text-xs md:text-sm"><code>pm2 start app.js -i max</code></td></tr>
+                <tr className="bg-white hover:bg-gray-50 transition"><td className="px-3 py-2 md:px-4 md:py-2 border-t text-xs md:text-sm">Express JSON body parser</td><td className="px-3 py-2 md:px-4 md:py-2 border-t font-mono text-xs md:text-sm"><code>app.use(express.json())</code></td></tr>
+                <tr className="bg-gray-50 hover:bg-gray-100 transition"><td className="px-3 py-2 md:px-4 md:py-2 border-t text-xs md:text-sm">Nginx reverse proxy config</td><td className="px-3 py-2 md:px-4 md:py-2 border-t font-mono text-xs md:text-sm"><code>proxy_pass http://localhost:3000;</code></td></tr>
+                <tr className="bg-white hover:bg-gray-50 transition"><td className="px-3 py-2 md:px-4 md:py-2 border-t text-xs md:text-sm">Generate a JWT</td><td className="px-3 py-2 md:px-4 md:py-2 border-t font-mono text-xs md:text-sm"><code>jwt.sign(payload, secret)</code></td></tr>
+                <tr className="bg-gray-50 hover:bg-gray-100 transition"><td className="px-3 py-2 md:px-4 md:py-2 border-t text-xs md:text-sm">Environment variable</td><td className="px-3 py-2 md:px-4 md:py-2 border-t font-mono text-xs md:text-sm"><code>process.env.PORT || 3000</code></td></tr>
+                <tr className="bg-white hover:bg-gray-50 transition"><td className="px-3 py-2 md:px-4 md:py-2 border-t text-xs md:text-sm">Rate limiting (Express)</td>
+                  {/* ESCAPED BRACES FIX */}
+                  <td className="px-3 py-2 md:px-4 md:py-2 border-t font-mono text-xs md:text-sm"><code>app.use(rateLimit(&#123; windowMs, max &#125;))</code></td>
+                </tr>
+                <tr className="bg-gray-50 hover:bg-gray-100 transition"><td className="px-3 py-2 md:px-4 md:py-2 border-t text-xs md:text-sm">Password hashing</td><td className="px-3 py-2 md:px-4 md:py-2 border-t font-mono text-xs md:text-sm"><code>bcrypt.hash(password, saltRounds)</code></td></tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        {/* Final Advice */}
-        <div className="mt-12 bg-gradient-to-r from-emerald-50 to-green-50 rounded-2xl p-6 border border-emerald-100">
+        {/* FINAL ADVICE */}
+        <div className="mt-8 md:mt-12 bg-gradient-to-r from-emerald-50 to-green-50 rounded-2xl p-4 md:p-6 border border-emerald-100">
           <div className="flex items-start gap-3">
-            <div className="text-3xl">🎯</div>
+            <div className="text-2xl md:text-3xl">🎯</div>
             <div>
-              <h3 className="font-bold text-lg text-emerald-800">Key advice for interviews</h3>
-              <p className="text-gray-700">For interviews, practice explaining the event loop with a diagram, understand the difference between scaling (clustering vs. worker threads), and be ready to write a small Express server with middleware, CORS, and Helmet. Show that you know how to handle errors and secure the app.</p>
+              <h3 className="font-bold text-base md:text-lg text-emerald-800">Key advice for interviews</h3>
+              <p className="text-sm md:text-base text-gray-700">For interviews, practice explaining the event loop with a diagram, understand the difference between scaling (clustering vs. worker threads), and be ready to write a small Express server with middleware, CORS, and Helmet. Show that you know how to handle errors and secure the app.</p>
+              <div className="mt-3 bg-white/50 rounded-lg p-3 text-xs md:text-sm text-gray-800">
+                <strong>⏱️ Quick revision phrases:</strong><br />
+                • “Node.js: single thread + event loop = concurrency without threads.”<br />
+                • “Express middleware: req → res flow, call next() to continue.”<br />
+                • “Security: Helmet for headers, Cors for cross‑origin, Rate limiting for DDoS, JWT + bcrypt for auth.”<br />
+                • “Scaling: Cluster (multi‑process) or Worker threads (CPU tasks).”
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Back to Top Button */}
-        <div className="fixed bottom-6 right-6">
-          <a href="#" className="bg-emerald-600 hover:bg-emerald-700 text-white p-3 rounded-full shadow-lg transition-all hover:scale-110" aria-label="Back to top">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
-          </a>
         </div>
       </div>
     </div>

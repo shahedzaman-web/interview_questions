@@ -31,12 +31,10 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* Small script to clean up any extension‑added attributes before hydration */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                // Remove any data-* attributes added by extensions on the body element
                 const body = document.body;
                 if (body) {
                   for (const attr of body.attributes) {
@@ -56,12 +54,12 @@ export default function RootLayout({
       >
         <NavBar />
         <main className="flex-1">
-          <div className="max-w-5xl mx-auto px-4 py-6 md:py-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
             {children}
           </div>
         </main>
         <footer className="border-t border-gray-200 py-6 text-center text-sm text-gray-500 bg-white">
-          <div className="max-w-5xl mx-auto px-4">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             Complete Interview Preparation Guide – Keep Learning 🚀
           </div>
         </footer>

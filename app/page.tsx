@@ -17,17 +17,16 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-800 text-white py-24 px-4">
+      <div className="relative overflow-hidden bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-800 text-white py-16 sm:py-20 md:py-24 px-4">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-1 mb-6 text-sm font-medium">
             <span className="mr-2">🚀</span> Master Modern Web Development
           </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-purple-200">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-purple-200">
             Complete Interview Preparation
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-8">
+          <p className="text-lg sm:text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-8">
             JavaScript · React · Next.js · Node.js · Databases · DevOps
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -47,36 +46,30 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        {/* Section Title */}
+      <div className="max-w-7xl mx-auto px-4 py-12 sm:py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Explore Interview Topics</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">Comprehensive guides covering everything you need to ace your next technical interview</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-3">Explore Interview Topics</h2>
+          <p className="text-gray-500 max-w-2xl mx-auto text-sm sm:text-base">Comprehensive guides covering everything you need to ace your next technical interview</p>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {sections.map((section) => (
             <Link
               key={section.href}
               href={section.href}
               className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
             >
-              {/* Gradient hover overlay */}
               <div className={`absolute inset-0 bg-gradient-to-br ${section.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-              
-              {/* Content */}
               <div className="p-6 relative z-10">
                 <div className="flex items-center justify-between mb-4">
                   <div className="text-5xl group-hover:scale-110 transition-transform duration-300">
                     {section.icon}
                   </div>
-                  <span className={`text-xs font-medium px-2 py-1 rounded-full bg-gray-100 text-gray-600 group-hover:bg-${section.color.split(' ')[1].replace('from-', '')}/10 transition-colors`}>
+                  <span className="text-xs font-medium px-2 py-1 rounded-full bg-gray-100 text-gray-600 group-hover:bg-gray-200 transition-colors">
                     {section.tag}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 group-hover:text-gray-900 mb-2">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-800 group-hover:text-gray-900 mb-2">
                   {section.title}
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-4">
@@ -90,9 +83,8 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Feature Highlight */}
-        <div className="mt-20 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+        <div className="mt-20 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 sm:p-8 border border-blue-100">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
             <div>
               <div className="text-4xl mb-2">📚</div>
               <h3 className="font-bold text-gray-800 mb-1">Structured Learning</h3>
@@ -111,7 +103,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Call to Action */}
         <div className="mt-16 text-center">
           <p className="text-gray-500 text-sm border-t pt-6">
             📚 Curated for freshers and junior developers – updated regularly.

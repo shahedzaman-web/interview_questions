@@ -1,16 +1,15 @@
-// components/HRQuestions.tsx
+// app/hrQuestions/page.tsx
 import React from "react";
 
 export default function HRQuestions() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-800 text-white py-16 px-4 rounded">
+      <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-800 text-white py-16 px-4">
         <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
             HR & Behavioral Questions
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
             Sample answers, key points, and tips to ace your interview
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-8">
@@ -22,7 +21,6 @@ export default function HRQuestions() {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 py-10">
-        {/* Introduction Card */}
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 mb-10 border border-blue-100">
           <div className="flex items-start gap-3">
             <div className="text-3xl">💼</div>
@@ -33,9 +31,7 @@ export default function HRQuestions() {
           </div>
         </div>
 
-        {/* Questions List */}
         <div className="space-y-6">
-          {/* Question 1 */}
           <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-3">
@@ -62,7 +58,6 @@ export default function HRQuestions() {
             </div>
           </div>
 
-          {/* Question 2 */}
           <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-3">
@@ -85,7 +80,6 @@ export default function HRQuestions() {
             </div>
           </div>
 
-          {/* Question 3 */}
           <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-3">
@@ -108,7 +102,6 @@ export default function HRQuestions() {
             </div>
           </div>
 
-          {/* Question 4 */}
           <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-3">
@@ -124,7 +117,6 @@ export default function HRQuestions() {
             </div>
           </div>
 
-          {/* Question 5 */}
           <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-3">
@@ -146,7 +138,6 @@ export default function HRQuestions() {
             </div>
           </div>
 
-          {/* Question 6 */}
           <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-3">
@@ -162,7 +153,6 @@ export default function HRQuestions() {
             </div>
           </div>
 
-          {/* Question 7 */}
           <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-3">
@@ -178,7 +168,6 @@ export default function HRQuestions() {
             </div>
           </div>
 
-          {/* Question 8 */}
           <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-3">
@@ -195,7 +184,6 @@ export default function HRQuestions() {
             </div>
           </div>
 
-          {/* Question 9 */}
           <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-3">
@@ -211,7 +199,6 @@ export default function HRQuestions() {
             </div>
           </div>
 
-          {/* Question 10 */}
           <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-3">
@@ -227,7 +214,6 @@ export default function HRQuestions() {
             </div>
           </div>
 
-          {/* Question 11 */}
           <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-3">
@@ -254,7 +240,6 @@ export default function HRQuestions() {
             </div>
           </div>
 
-          {/* Question 12 */}
           <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-3">
@@ -278,7 +263,6 @@ export default function HRQuestions() {
           </div>
         </div>
 
-        {/* Closing Tip */}
         <div className="mt-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
           <div className="flex items-start gap-3">
             <div className="text-3xl">🎯</div>

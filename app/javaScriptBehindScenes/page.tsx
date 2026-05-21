@@ -1,18 +1,17 @@
-// components/JavaScriptBehindScenes.tsx
+// app/javaScriptBehindScenes/page.tsx
 import React from "react";
 import Image from "next/image";
 
 export default function JavaScriptBehindScenes() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-            {/* Hero Section */}
-            <div className="bg-gradient-to-r from-slate-800 via-gray-800 to-slate-900 text-white py-20 px-4 rounded">
+            <div className="bg-gradient-to-r from-slate-800 via-gray-800 to-slate-900 text-white py-16 px-4">
                 <div className="max-w-5xl mx-auto text-center">
                     <span className="text-5xl"> 🚀 </span>
-                    <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
                         How JavaScript Works Behind the Scenes
                     </h1>
-                    <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+                    <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
                         Understand the event loop, call stack, JIT compilation, and more
                     </p>
                     <div className="flex flex-wrap justify-center gap-3 mt-8">
@@ -25,7 +24,6 @@ export default function JavaScriptBehindScenes() {
             </div>
 
             <div className="max-w-5xl mx-auto px-4 py-12">
-                {/* 1. The JavaScript Engine */}
                 <div className="mb-14">
                     <div className="flex items-center gap-3 mb-6">
                         <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center">
@@ -33,7 +31,7 @@ export default function JavaScriptBehindScenes() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 5h10a2 2 0 012 2v10a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2z" />
                             </svg>
                         </div>
-                        <h2 className="text-3xl font-bold text-gray-800">1. The JavaScript Engine</h2>
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">1. The JavaScript Engine</h2>
                     </div>
                     <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
                         <div className="p-6">
@@ -65,7 +63,6 @@ export default function JavaScriptBehindScenes() {
                     </div>
                 </div>
 
-                {/* 2. The JavaScript Runtime Environment */}
                 <div className="mb-14">
                     <div className="flex items-center gap-3 mb-6">
                         <div className="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center">
@@ -73,7 +70,7 @@ export default function JavaScriptBehindScenes() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
                             </svg>
                         </div>
-                        <h2 className="text-3xl font-bold text-gray-800">2. The JavaScript Runtime Environment</h2>
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">2. The JavaScript Runtime Environment</h2>
                     </div>
                     <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
                         <div className="p-6">
@@ -96,7 +93,6 @@ export default function JavaScriptBehindScenes() {
                     </div>
                 </div>
 
-                {/* 3. Optimization Strategies */}
                 <div className="mb-14">
                     <div className="flex items-center gap-3 mb-6">
                         <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
@@ -104,12 +100,12 @@ export default function JavaScriptBehindScenes() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                         </div>
-                        <h2 className="text-3xl font-bold text-gray-800">3. Optimization Strategies – How JavaScript Gets Faster</h2>
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">3. Optimization Strategies – How JavaScript Gets Faster</h2>
                     </div>
                     <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
                         <div className="p-6">
                             <h3 className="text-xl font-bold text-gray-800 mb-4">🔁 Just-in-Time (JIT) Compilation</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
                                 <div className="rounded-xl overflow-hidden shadow-md">
                                     <Image width={300} height={200} src="https://www.freecodecamp.org/news/content/images/2023/05/EB039874-52DC-4CD8-B95C-F9E75F2D2283_4_5005_c.jpeg" alt="JIT Compilation" className="w-full h-auto" loading="eager" />
                                 </div>
@@ -135,7 +131,6 @@ export default function JavaScriptBehindScenes() {
                     </div>
                 </div>
 
-                {/* 4. Performance Considerations for Developers */}
                 <div className="mb-14">
                     <div className="flex items-center gap-3 mb-6">
                         <div className="w-10 h-10 bg-rose-100 rounded-xl flex items-center justify-center">
@@ -143,7 +138,7 @@ export default function JavaScriptBehindScenes() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                         </div>
-                        <h2 className="text-3xl font-bold text-gray-800">4. Performance Considerations for Developers</h2>
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">4. Performance Considerations for Developers</h2>
                     </div>
                     <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
                         <div className="p-6">
@@ -157,7 +152,6 @@ export default function JavaScriptBehindScenes() {
                     </div>
                 </div>
 
-                {/* Key Takeaway */}
                 <div className="mt-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100 shadow-sm">
                     <div className="flex items-start gap-3">
                         <div className="text-3xl">📌</div>
@@ -167,8 +161,6 @@ export default function JavaScriptBehindScenes() {
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     );

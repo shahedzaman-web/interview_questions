@@ -1,4 +1,4 @@
-// components/DevOpsQuestions.tsx
+// /app/DevOpsQuestions/page.tsx
 import React from "react";
 
 export default function DevOpsQuestions() {
@@ -63,7 +63,7 @@ export default function DevOpsQuestions() {
         <div className="max-w-5xl mx-auto text-center">
           <span className="text-5xl"> ☁️ </span>
           <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
-           Deployment, VPS &amp; CI/CD Interview Questions
+            Deployment, VPS &amp; CI/CD Interview Questions
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
             From VPS deployment to Docker, CI/CD pipelines, and production monitoring
@@ -96,7 +96,7 @@ export default function DevOpsQuestions() {
               <div className="p-6">
                 <div className="flex items-start gap-3">
                   <span className="bg-slate-100 text-slate-700 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
-                    {idx+1}
+                    {idx + 1}
                   </span>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-gray-800" dangerouslySetInnerHTML={{ __html: item.q }} />
@@ -122,18 +122,7 @@ export default function DevOpsQuestions() {
           </div>
         </div>
 
-        {/* Back to Top Button */}
-        <div className="fixed bottom-6 right-6">
-          <a
-            href="#"
-            className="bg-slate-700 hover:bg-slate-800 text-white p-3 rounded-full shadow-lg transition-all hover:scale-110"
-            aria-label="Back to top"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-            </svg>
-          </a>
-        </div>
+
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-// components/JavaScriptQuestions.tsx
+// /app/JavaScriptQuestions/page.tsx
 import React from "react";
 
 export default function JavaScriptQuestions() {
@@ -178,7 +178,7 @@ bound("Dhaka", "Bangladesh");`}</pre>
       title: "Scope and Scope Chain",
       content: (
         <>
-          <p><strong>Global scope</strong> – accessible everywhere. <strong>Function scope</strong> – inside function only. <strong>Block scope</strong> (<code>let</code>/<code>const</code>) – inside <code>{}</code>.</p>
+          <p><strong>Global scope</strong> – accessible everywhere. <strong>Function scope</strong> – inside function only. <strong>Block scope</strong> (<code>let</code>/<code>const</code>) – inside <code>{ }</code>.</p>
           <p><strong>Scope chain:</strong> JS looks for a variable in current scope → outer scope → global scope → error if not found.</p>
         </>
       ),
@@ -560,18 +560,362 @@ const html = \`
         </>
       ),
     },
+    {
+      id: 33,
+      title: "setTimeout vs setInterval vs setImmediate vs process.nextTick",
+      content: (
+        <>
+          <div className="overflow-x-auto my-4">
+            <table className="min-w-full border border-gray-300 text-sm text-left">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="border px-4 py-2">Function</th>
+                  <th className="border px-4 py-2">Short Explanation</th>
+                  <th className="border px-4 py-2">Detailed Explanation</th>
+                  <th className="border px-4 py-2">Example</th>
+                  <th className="border px-4 py-2">Difference / Notes</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                {/* setTimeout */}
+                <tr>
+                  <td className="border px-4 py-2 font-semibold">
+                    <code>setTimeout()</code>
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Runs a function once after a delay.
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Schedules a callback to execute one time after the specified delay (in milliseconds).
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    <pre>{`
+setTimeout(() => {
+  console.log("Hello");
+}, 2000);
+                `}</pre>
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Executes only once. Can be cancelled using <code>clearTimeout()</code>.
+                  </td>
+                </tr>
+
+                {/* setInterval */}
+                <tr>
+                  <td className="border px-4 py-2 font-semibold">
+                    <code>setInterval()</code>
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Runs a function repeatedly after fixed intervals.
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Continuously executes a callback every specified interval until stopped manually.
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    <pre>{`
+const id = setInterval(() => {
+  console.log("Running...");
+}, 1000);
+                `}</pre>
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Repeats continuously. Must stop using <code>clearInterval()</code>.
+                  </td>
+                </tr>
+
+                {/* clearTimeout */}
+                <tr>
+                  <td className="border px-4 py-2 font-semibold">
+                    <code>clearTimeout()</code>
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Stops a timeout before execution.
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Cancels a scheduled <code>setTimeout()</code> callback using its timer ID.
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    <pre>{`
+const id = setTimeout(() => {
+  console.log("Won't run");
+}, 3000);
+
+clearTimeout(id);
+                `}</pre>
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Used only with <code>setTimeout()</code>.
+                  </td>
+                </tr>
+
+                {/* clearInterval */}
+                <tr>
+                  <td className="border px-4 py-2 font-semibold">
+                    <code>clearInterval()</code>
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Stops repeated interval execution.
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Cancels an active interval created by <code>setInterval()</code>.
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    <pre>{`
+const id = setInterval(() => {
+  console.log("Running");
+}, 1000);
+
+clearInterval(id);
+                `}</pre>
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Used only with <code>setInterval()</code>.
+                  </td>
+                </tr>
+
+                {/* setImmediate */}
+                <tr>
+                  <td className="border px-4 py-2 font-semibold">
+                    <code>setImmediate()</code>
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Executes callback immediately after current event loop cycle.
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Node.js-specific function that runs after I/O operations and before timers in the next event loop iteration.
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    <pre>{`
+setImmediate(() => {
+  console.log("Immediate");
+});
+                `}</pre>
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Available mainly in Node.js. Faster than <code>setTimeout(fn, 0)</code> in some cases.
+                  </td>
+                </tr>
+
+                {/* process.nextTick */}
+                <tr>
+                  <td className="border px-4 py-2 font-semibold">
+                    <code>process.nextTick()</code>
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Executes callback before next event loop phase.
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Node.js microtask queue function. Runs immediately after current operation completes, before timers and I/O.
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    <pre>{`
+process.nextTick(() => {
+  console.log("Next Tick");
+});
+                `}</pre>
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Higher priority than <code>setImmediate()</code> and <code>setTimeout()</code>.
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          {/* Difference Table */}
+
+          <div className="overflow-x-auto my-6">
+            <h2 className="text-lg font-bold mb-3">
+              Main Differences
+            </h2>
+
+            <table className="min-w-full border border-gray-300 text-sm text-left">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="border px-4 py-2">Feature</th>
+                  <th className="border px-4 py-2">setTimeout</th>
+                  <th className="border px-4 py-2">setInterval</th>
+                  <th className="border px-4 py-2">setImmediate</th>
+                  <th className="border px-4 py-2">process.nextTick</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td className="border px-4 py-2 font-semibold">
+                    Execution
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Once
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Repeatedly
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Next event loop cycle
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Before next event loop
+                  </td>
+                </tr>
+
+                <tr>
+                  <td className="border px-4 py-2 font-semibold">
+                    Environment
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Browser + Node.js
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Browser + Node.js
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Node.js
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Node.js
+                  </td>
+                </tr>
+
+                <tr>
+                  <td className="border px-4 py-2 font-semibold">
+                    Priority
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Low
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Low
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Medium
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Highest
+                  </td>
+                </tr>
+
+                <tr>
+                  <td className="border px-4 py-2 font-semibold">
+                    Cancel Method
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    clearTimeout
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    clearInterval
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    clearImmediate
+                  </td>
+
+                  <td className="border px-4 py-2">
+                    Cannot cancel directly
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          {/* Execution Order */}
+
+          <div className="my-5">
+            <h2 className="text-lg font-bold mb-2">
+              Execution Order Example (Node.js)
+            </h2>
+
+            <pre className=" p-4 rounded-md overflow-x-auto text-sm">
+              {`
+console.log("Start");
+
+setTimeout(() => {
+  console.log("setTimeout");
+}, 0);
+
+setImmediate(() => {
+  console.log("setImmediate");
+});
+
+process.nextTick(() => {
+  console.log("nextTick");
+});
+
+console.log("End");
+`}
+            </pre>
+
+            <div className="mt-3">
+              <strong>Output:</strong>
+
+              <pre className=" p-4 rounded-md overflow-x-auto text-sm mt-2">
+                {`
+Start
+End
+nextTick
+setTimeout
+setImmediate
+`}
+              </pre>
+            </div>
+          </div>
+        </>
+      )
+    }
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 text-white py-20 px-4">
+      <div className="bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 text-white py-16 px-4">
         <div className="max-w-5xl mx-auto text-center">
-            <span className="text-5xl">📜 </span>
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-yellow-200">
+          <span className="text-5xl">📜 </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-yellow-200">
             JavaScript Interview Questions
           </h1>
-          <p className="text-xl md:text-2xl text-yellow-100 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-yellow-100 max-w-3xl mx-auto">
             Core concepts, ES6, async patterns, and common pitfalls – 32 essential questions
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-8">
@@ -582,9 +926,7 @@ const html = \`
           </div>
         </div>
       </div>
-
       <div className="max-w-5xl mx-auto px-4 py-12">
-        {/* Introduction Card */}
         <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6 mb-10 border border-yellow-100">
           <div className="flex items-start gap-3">
             <div className="text-3xl">💡</div>
@@ -594,8 +936,6 @@ const html = \`
             </div>
           </div>
         </div>
-
-        {/* Questions Grid */}
         <div className="grid gap-6">
           {questions.map((q) => (
             <div key={q.id} className="group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
@@ -604,15 +944,11 @@ const html = \`
                   <span className="bg-yellow-100 text-yellow-700 w-8 h-8 rounded-full flex items-center justify-center font-bold">{q.id}</span>
                   <h3 className="text-xl font-bold text-gray-800">{q.title}</h3>
                 </div>
-                <div className="text-gray-700 space-y-3">
-                  {q.content}
-                </div>
+                <div className="text-gray-700 space-y-3">{q.content}</div>
               </div>
             </div>
           ))}
         </div>
-
-        {/* Final Advice */}
         <div className="mt-12 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6 border border-yellow-100">
           <div className="flex items-start gap-3">
             <div className="text-3xl">🎯</div>
@@ -622,8 +958,6 @@ const html = \`
             </div>
           </div>
         </div>
-
-      
       </div>
     </div>
   );

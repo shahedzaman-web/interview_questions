@@ -38,7 +38,6 @@ export default function NavBar() {
 
   const isActive = (path: string) => pathname === path;
 
-  // Placeholder for SSR
   if (!mounted) {
     return (
       <nav className="sticky top-0 z-50 bg-white/60 backdrop-blur-md border-b border-gray-200/30">
@@ -64,7 +63,6 @@ export default function NavBar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            {/* Creative Logo with pulse animation */}
             <Link
               href="/"
               className="group flex items-center space-x-2 text-xl font-extrabold tracking-tight"
@@ -73,12 +71,11 @@ export default function NavBar() {
                 📘
                 <span className="absolute inset-0 animate-ping opacity-0 group-hover:opacity-100 duration-300"></span>
               </span>
-              <span className="bg-gradient-to-r from-blue-700 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:from-blue-800 hover:via-purple-700 hover:to-pink-700 transition-all">
+              <span className="bg-gradient-to-r from-blue-700 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:from-blue-800 hover:via-purple-700 hover:to-pink-700 transition-all text-base sm:text-xl">
                 Interview Prep
               </span>
             </Link>
 
-            {/* Desktop Navigation - Creative floating pills */}
             <div className="hidden md:flex items-center gap-1 bg-white/20 backdrop-blur-sm rounded-full px-2 py-1 shadow-inner">
               {navLinks.map((link) => (
                 <Link
@@ -92,9 +89,9 @@ export default function NavBar() {
                 >
                   <span className="flex items-center gap-1.5">
                     <span className="text-base">{link.icon}</span>
-                    {link.label}
+                    <span className="hidden lg:inline">{link.label}</span>
+                    <span className="lg:hidden">{link.icon}</span>
                   </span>
-                  {/* Active glow */}
                   {isActive(link.href) && (
                     <span className="absolute inset-0 rounded-full bg-white/20 animate-pulse"></span>
                   )}
@@ -102,7 +99,6 @@ export default function NavBar() {
               ))}
             </div>
 
-            {/* Mobile menu button - modern animated hamburger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-600 hover:bg-white/40 focus:outline-none transition-all duration-300"
@@ -129,7 +125,6 @@ export default function NavBar() {
           </div>
         </div>
 
-        {/* Mobile Navigation - full height glass panel */}
         <div
           className={`md:hidden fixed inset-x-0 top-16 z-40 backdrop-blur-xl bg-white/90 shadow-2xl transition-all duration-500 ease-in-out ${
             mobileMenuOpen
@@ -160,7 +155,6 @@ export default function NavBar() {
         </div>
       </nav>
 
-      {/* Backdrop click to close mobile menu (optional) */}
       {mobileMenuOpen && (
         <div
           className="md:hidden fixed inset-0 z-30 bg-black/20 backdrop-blur-sm"

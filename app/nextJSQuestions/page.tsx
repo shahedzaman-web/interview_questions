@@ -1,4 +1,4 @@
-// app/nextJSQuestions/page.tsx
+// /app/nextJSQuestions/page.tsx
 import React from "react";
 
 export default function NextJSQuestions() {
@@ -7,7 +7,7 @@ export default function NextJSQuestions() {
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-800 text-white py-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
-            <span className="text-5xl"> 🚀 </span>
+          <span className="text-5xl"> 🚀 </span>
           <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
             Next.js Interview Questions
           </h1>
@@ -65,7 +65,7 @@ export default function NextJSQuestions() {
             </div>
             <h2 className="text-3xl font-bold text-gray-800">Basics</h2>
           </div>
-          <div className="grid gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">1. What is Next.js and why use it over React?</h3>
@@ -155,7 +155,7 @@ export default function NextJSQuestions() {
             </div>
             <h2 className="text-3xl font-bold text-gray-800">Rendering Strategies</h2>
           </div>
-          <div className="grid gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 p-6">
               <h3 className="text-xl font-bold text-gray-800 mb-2">11. Explain SSR, SSG, ISR, and CSR.</h3>
               <ul className="list-disc list-inside text-gray-600 space-y-1 mt-2">
@@ -194,7 +194,7 @@ export default function NextJSQuestions() {
             </div>
             <h2 className="text-3xl font-bold text-gray-800">App Router (Next.js 13+)</h2>
           </div>
-          <div className="grid gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* App Router questions 16-32 – compact but styled similarly */}
             {[
               { q: "16. What is the App Router?", a: "New routing system with folder‑based structure, support for nested layouts, React Server Components, and more flexible data fetching." },
@@ -233,7 +233,7 @@ export default function NextJSQuestions() {
             </div>
             <h2 className="text-3xl font-bold text-gray-800">Pages Router (Legacy)</h2>
           </div>
-          <div className="grid gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 p-6">
               <h3 className="text-xl font-bold text-gray-800 mb-2">33. What is the Pages Router?</h3>
               <p className="text-gray-600">Original file‑based routing: files in <code>pages</code> directory become routes.</p>
@@ -263,7 +263,7 @@ export default function NextJSQuestions() {
             </div>
             <h2 className="text-3xl font-bold text-gray-800">API Routes & Route Handlers</h2>
           </div>
-          <div className="grid gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 p-6">
               <h3 className="text-xl font-bold text-gray-800 mb-2">37. What are API Routes?</h3>
               <p className="text-gray-600">Serverless functions in <code>pages/api</code> (Pages Router) or <code>app/api</code> (App Router) that handle backend logic.</p>
@@ -321,7 +321,7 @@ export async function GET(request) {
             </div>
             <h2 className="text-3xl font-bold text-gray-800">Middleware</h2>
           </div>
-          <div className="grid gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 p-6">
               <h3 className="text-xl font-bold text-gray-800 mb-2">43. What is middleware in Next.js?</h3>
               <p className="text-gray-600">Code that runs before a request is completed – used for authentication, redirects, A/B testing, etc.</p>
@@ -354,7 +354,7 @@ export const config = { matcher: ["/dashboard/:path*"] };`}</pre>
             </div>
             <h2 className="text-3xl font-bold text-gray-800">Authentication & Security</h2>
           </div>
-          <div className="grid gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 p-6">
               <h3 className="text-xl font-bold text-gray-800 mb-2">46. How to handle authentication in Next.js?</h3>
               <p className="text-gray-600">Use NextAuth.js (Auth.js), JWT with HTTP‑only cookies, or custom OAuth. Protect routes via middleware or API route checks.</p>
@@ -388,7 +388,7 @@ export const config = { matcher: ["/dashboard/:path*"] };`}</pre>
             </div>
             <h2 className="text-3xl font-bold text-gray-800">Performance & Optimization</h2>
           </div>
-          <div className="grid gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 p-6">
               <h3 className="text-xl font-bold text-gray-800 mb-2">51. What is the purpose of <code>next/image</code>?</h3>
               <p className="text-gray-600">Automatically optimises images: lazy loading, resizing, serving modern formats (WebP/AVIF), preventing layout shift.</p>
@@ -422,7 +422,7 @@ export const config = { matcher: ["/dashboard/:path*"] };`}</pre>
             </div>
             <h2 className="text-3xl font-bold text-gray-800">Deployment & DevOps</h2>
           </div>
-          <div className="grid gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 p-6">
               <h3 className="text-xl font-bold text-gray-800 mb-2">56. How do you deploy a Next.js app to Vercel?</h3>
               <p className="text-gray-600">Connect GitHub repository, Vercel auto‑detects Next.js and configures build settings.</p>
@@ -464,7 +464,7 @@ export const config = { matcher: ["/dashboard/:path*"] };`}</pre>
             </div>
             <h2 className="text-3xl font-bold text-gray-800">Additional Interview Questions</h2>
           </div>
-          <div className="grid gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 p-6">
               <h3 className="text-xl font-bold text-gray-800 mb-2">63. What are the limitations of Next.js?</h3>
               <ul className="list-disc list-inside text-gray-600">

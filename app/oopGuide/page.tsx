@@ -1,4 +1,4 @@
-// components/OOPGuide.tsx
+// /app/OOPGuide/page.tsx
 import React from "react";
 
 export default function OOPGuide() {
@@ -6,10 +6,22 @@ export default function OOPGuide() {
         {
             title: "🧱 Core OOP Principles",
             items: [
-                { name: "Encapsulation", desc: "bundling data + methods, hiding internal state using private fields (#) or closures." },
-                { name: "Abstraction", desc: "exposing only essential features, hiding complex internals." },
-                { name: "Inheritance", desc: "child classes reuse and extend parent behaviour (<code>extends</code>)." },
-                { name: "Polymorphism", desc: "same method name, different implementations (overriding)." },
+                {
+                    name: "Encapsulation", desc: "bundling data + methods, hiding internal state using private fields (#) or closures.", p: "Encapsulation means wrapping data (variables) and methods (functions) together inside a single unit called a class and controlling access to the data. It protects the internal state of an object from direct modification.",
+                    features: ["Data hiding", "Security", "Controlled access", "Better maintainability"]
+                },
+                {
+                    name: "Abstraction", desc: "exposing only essential features, hiding complex internals.", p: "Abstraction is the concept of hiding the complex implementation details and showing only the necessary features of an object. It allows developers to work with high-level interfaces without worrying about the underlying complexities.",
+                    features: ["Simplicity", "Focus on what an object does rather than how it does it", "Improved code readability"]
+                },
+                {
+                    name: "Inheritance", desc: "child classes reuse and extend parent behaviour (<code>extends</code>).", p: "Inheritance allows a new class (child) to inherit properties and methods from an existing class (parent). This promotes code reusability and establishes a natural hierarchical relationship between classes.",
+                    features: ["Code reuse", "Hierarchical classification", "Polymorphic behavior"]
+                },
+                {
+                    name: "Polymorphism", desc: "same method name, different implementations (overriding).", p: "Polymorphism allows objects of different types to be treated as instances of the same type through a common interface. It enables a single interface to be used for a general class of actions.", features: ["Method overriding", "Dynamic dispatch", "Code flexibility"],
+
+                },
             ],
         },
         {
@@ -267,31 +279,67 @@ console.log(mgr.work());`,
                         <div key={idx} className="group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
                             <div className="p-6">
                                 <h3 className="text-2xl font-bold text-gray-800 mb-4">{concept.title}</h3>
+
                                 {concept.items && (
-                                    <ul className="list-disc list-inside ml-4 space-y-1 text-gray-700 mb-4">
-                                        {concept.items.map((item, i) => (
-                                            <li key={i}><strong>{item.name}</strong> – {item.desc}</li>
-                                        ))}
-                                    </ul>
+                                    <>
+                                        <ul className="list-disc list-inside ml-4 space-y-1 text-gray-700 mb-4">
+                                            {concept.items.map((item, i) => (
+                                                <li key={i}>
+                                                    <strong>{item.name}</strong> – {item.desc}
+                                                </li>
+                                            ))}
+                                        </ul>
+
+                                        {/* Render features for each item that has them */}
+                                        {concept.items.map((item, i) =>
+                                            item.features && item.features.length > 0 ? (
+                                                <div key={`features-${i}`} className="mb-4">
+                                                    <h4 className="font-semibold text-lg mb-2">✨ {item.name} Features:</h4>
+                                                    <ul className="list-disc list-inside ml-4 space-y-1 text-gray-700">
+                                                        {item.features.map((feature, j) => (
+                                                            <li key={j}>{feature}</li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            ) : null
+                                        )}
+                                    </>
                                 )}
+
                                 {concept.note && <p className="text-gray-700 mb-3" dangerouslySetInnerHTML={{ __html: concept.note }} />}
                                 {concept.subtext && <p className="text-gray-700 mb-3 italic">{concept.subtext}</p>}
                                 {concept.code && (
-                                    <pre className="bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto text-sm font-mono my-3">{concept.code}</pre>
+                                    <pre className="bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto text-sm font-mono my-3">
+                                        {concept.code}
+                                    </pre>
                                 )}
+
                                 {concept.override && (
                                     <>
-                                        <h4 className="font-semibold text-lg mt-3 mb-2">✅ Overriding (supported naturally)</h4>
-                                        <pre className="bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto text-sm font-mono my-2">{concept.override}</pre>
-                                        <h4 className="font-semibold text-lg mt-3 mb-2">⚠️ Overloading (not natively supported – workarounds)</h4>
-                                        <pre className="bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto text-sm font-mono my-2">{concept.overload}</pre>
+                                        <h4 className="font-semibold text-lg mt-3 mb-2">
+                                            ✅ Overriding (supported naturally) – When a child class redefines a parent class method with the same name and parameters.
+                                        </h4>
+                                        <p className="text-gray-700 mb-2">
+                                            Method overriding happens when a child class provides its own implementation of a method that already exists in the parent class.
+                                        </p>
+                                        <pre className="bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto text-sm font-mono my-2">
+                                            {concept.override}
+                                        </pre>
+                                        <h4 className="font-semibold text-lg mt-3 mb-2">
+                                            ⚠️ Overloading (not natively supported – workarounds) – When multiple methods have the same name but different parameters.
+                                        </h4>
+                                        <p className="text-gray-700 mb-2">
+                                            Method overloading is when multiple methods have the same name but different parameters. JavaScript does not support this natively, but you can achieve similar behavior using techniques like checking the number of arguments or using rest parameters.
+                                        </p>
+                                        <pre className="bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto text-sm font-mono my-2">
+                                            {concept.overload}
+                                        </pre>
                                     </>
                                 )}
                             </div>
                         </div>
                     ))}
                 </div>
-
                 {/* Special Note about Prototypal Inheritance */}
                 <div className="mt-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
                     <div className="flex items-start gap-3">
