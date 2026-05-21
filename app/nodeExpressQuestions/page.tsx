@@ -395,7 +395,7 @@ export default function NodeExpressQuestions() {
         </div >
 
         {/* QUICK REFERENCE TABLE - Fully responsive with escaped braces */}
-        <div div className="mb-12 md:mb-14" >
+        <div className="mb-12 md:mb-14" >
           <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4">📋 Quick Reference & Memorization Table</h3>
           <div className="overflow-x-auto rounded-xl shadow-sm border border-gray-200">
             <table className="min-w-[500px] md:min-w-full bg-white">
@@ -439,7 +439,7 @@ export default function NodeExpressQuestions() {
             </div>
           </div>
         </div>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 }
